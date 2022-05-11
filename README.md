@@ -9,3 +9,4 @@ A simple php API framework
 4. 新增请求日志记录
 5. 新增自定义异常处理
 6. 新增全局异常处理
+7. 新增header输出类型为json

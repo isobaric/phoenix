@@ -1,0 +1,33 @@
+{
+    "name": "horseloft/phoenix",
+    "description": "A Simple PHP API Framework",
+    "keywords": ["framework", "horseloft"],
+    "type": "project",
+    "license": "proprietary",
+    "authors": [
+        {
+            "name": "YHC",
+            "homepage": "https://github.com/horseloft"
+        }
+    ],
+    "require": {
+        "php": "~7.1",
+        "ext-json":"^1.0",
+        "horseloft/phalanx": "~0.0.1",
+        "horseloft/plodder": "^1.0"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "~5.0"
+    },
+    "prefer-stable": true,
+    "repositories": [
+        {
+            "type": "vcs",
+            "url": "https://github.com/horseloft/phalanx"
+        },
+        {
+            "type": "composer",
+            "url": "https://mirrors.aliyun.com/composer"
+        }
+    ]
+}

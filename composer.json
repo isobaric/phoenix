@@ -26,6 +26,10 @@
             "url": "https://github.com/horseloft/phalanx"
         },
         {
+            "type": "vcs",
+            "url": "https://github.com/horseloft/plodder"
+        },
+        {
             "type": "composer",
             "url": "https://mirrors.aliyun.com/composer"
         }

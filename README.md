@@ -2,7 +2,7 @@
 
 A simple php API framework
 
-**[v0.0.1]**
+**[v1.0.0]**
 1. 新增异常处理机制
 2. 新增基础functions
 3. 新增对于plodder的支持
@@ -10,3 +10,5 @@ A simple php API framework
 5. 新增自定义异常处理
 6. 新增全局异常处理
 7. 新增header输出类型为json
+8. 新增CORS处理
+9. 新增request记录可配置

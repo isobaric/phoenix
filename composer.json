@@ -16,6 +16,14 @@
         "horseloft/phalanx": "~0.0.1",
         "horseloft/plodder": "^1.0"
     },
+    "autoload": {
+        "psr-4": {
+            "Application\\": "Application/"
+        },
+        "files": [
+            "Core/functions.php"
+        ]
+    },
     "require-dev": {
         "phpunit/phpunit": "~5.0"
     },

@@ -123,10 +123,61 @@ A simple php API framework
    
    class DefaultInterceptor
    {
-       public static function handle(Request $request): bool
+       public static function handle(Request $request)
        {
            // TODO...
            return true;
+       }
+   }
+   ```
+
+## 异常处理
+
+
+### 默认异常捕捉
+
+1. 项目中的异常默认由 **Application\Runtime\Runtime::handle()** 处理
+
+2. **handle()**方法中的返回值将作为本次请求的返回值
+
+3. **handle()**方法必须有两个参数**Request**和**Throwable**，且参数顺序固定位**示例**中的位置
+
+4. 示例：
+
+   ```php
+   namespace Application\Runtime;
+   
+   use Horseloft\Phalanx\Builder\Request;
+   use Throwable;
+   
+   class Exception
+   {
+       public static function handle(Request $request, Throwable $e)
+       {
+           return "Default Exception: " . $e->getMessage() . " " . json_encode($request->all());
+       }
+   }
+   ```
+
+### 异常处理
+1. 在 目录中编写异常捕捉类，类名称必须与异常名称一致
+
+2. 自定义异常捕捉类，格式和功能与**默认异常捕捉类**一致
+
+3. 示例：
+
+   ```php
+   // HorseloftException
+   namespace Application\Runtime;
+   
+   use Horseloft\Phalanx\Builder\Request;
+   use Throwable;
+   
+   class HorseloftException
+   {
+       public static function handle(Request $request, Throwable $e)
+       {
+           return "Default Exception: " . $e->getMessage() . " " . json_encode($request->all());
        }
    }
    ```

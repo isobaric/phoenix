@@ -81,7 +81,7 @@ A simple php API framework
 6. 配置路由拦截器
 
    ```php
-   // 拦截器名称default，对应目录Interceptor下的DefaultInterceptor.php
+   // 拦截器名称default，对应目录(Application/Interceptor)下的DefaultInterceptor.php
    Route::group(['interceptor' => ['default']], function () {
        Route::post('index', 'IndexController::index');
    });
@@ -97,6 +97,38 @@ A simple php API framework
    Route::group(['prefix' => 'home'], function () {
        Route::post('index', 'IndexController::index');
    });
+   ```
+
+## 路由拦截器（Interceptor）
+1. 仅当拦截器返回值**强等于true**时，允许请求通过拦截器；其他格式的返回值将作为本次请求的返回值
+
+2. 配置路由拦截器
+
+   ```php
+   // 拦截器名称default，对应目录Interceptor下的DefaultInterceptor.php
+   Route::group(['interceptor' => ['default']], function () {
+       Route::post('index', 'IndexController::index');
+   });
+   
+   // 拦截器名称default，对应目录Interceptor下的DefaultInterceptor.php
+   Route::get('index', 'IndexController::index', null, 'default');
+   ```
+
+3. 编写路由拦截器
+
+   ```php
+   namespace Application\Interceptor;
+   
+   use Horseloft\Phalanx\Builder\Request;
+   
+   class DefaultInterceptor
+   {
+       public static function handle(Request $request): bool
+       {
+           // TODO...
+           return true;
+       }
+   }
    ```
 
 

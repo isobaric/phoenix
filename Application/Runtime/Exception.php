@@ -8,7 +8,7 @@ use Throwable;
 class Exception
 {
     /**
-     * 默认异常处理类
+     * 默认异常处理类|当前类文件为项目基础组件
      *
      * 在命名空间 Application\Runtime 中自定义异常处理类
      *   例：RuntimeException::class 捕捉RuntimeException异常并处理

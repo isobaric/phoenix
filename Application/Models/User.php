@@ -4,7 +4,7 @@ namespace Application\Models;
 
 use Horseloft\Plodder\Reservoir;
 
-class UserModel extends Reservoir
+class User extends Reservoir
 {
     public static $connection = 'default';
 

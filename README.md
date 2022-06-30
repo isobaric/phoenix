@@ -59,7 +59,7 @@ A simple php API framework
    
    // 1 路由组
    Route::group([], function () {
-   		// 2 POST请求路由
+       // 2 POST请求路由
        Route::post('index', 'IndexController::index');
    });
    // 3 GET请求路由
@@ -90,7 +90,7 @@ A simple php API framework
    Route::get('index', 'IndexController::index', null, 'default');
    ```
 
-7. 配置路由前缀（仅路由组支持）
+7. 配置路由前缀（仅路由组功能支持）
 
    ```php
    // 完整路由为：home/index
@@ -140,9 +140,9 @@ A simple php API framework
 
 1. 项目中的异常默认由 **Application\Runtime\Runtime::handle()** 处理
 
-2. **handle()**方法中的返回值将作为本次请求的返回值
+2. handle()方法中的返回值将作为本次请求的返回值
 
-3. **handle()**方法必须有两个参数**Request**和**Throwable**，且参数顺序固定位**示例**中的位置
+3. handle()方法必须有两个参数**Request**和**Throwable**，且参数顺序固定为**示例**中的位置
 
 4. 示例：
 
@@ -162,11 +162,11 @@ A simple php API framework
    ```
 
 ### 自定义异常处理
-1. 在目录中编写异常捕捉类，类名称必须与异常名称一致
+1. 在**Application/Runtime**目录下编写异常捕捉类，类名称必须与异常名称一致
 
 2. 自定义异常捕捉类，格式和功能与**默认异常捕捉类**一致
 
-3. 示例：
+3. 示例：类文件名HorseloftException.php
 
    ```php
    // HorseloftException
@@ -188,7 +188,7 @@ A simple php API framework
 1. 配置文件位于Config目录
 2. 配置文件返回值格式**必须**为数组
 3. 文件名称将作为配置信息的下标使用
-4. 使用**config()**方法获取配置项的值（注意：在配置文件中使用config()方法可能无法正常获取返回值）
+4. 使用config()方法获取配置项的值（注意：在配置文件中使用config()方法可能无法正常获取返回值）
 5. 示例：database.php，文件内容如下
 
    ```php

@@ -125,14 +125,16 @@ A simple php API framework
    {
        public static function handle(Request $request)
        {
-           // TODO...
+           /*
+            * 编写拦截器逻辑代码
+            */ 
+   
            return true;
        }
    }
    ```
 
 ## 异常处理
-
 
 ### 默认异常捕捉
 
@@ -159,8 +161,8 @@ A simple php API framework
    }
    ```
 
-### 异常处理
-1. 在 目录中编写异常捕捉类，类名称必须与异常名称一致
+### 自定义异常处理
+1. 在目录中编写异常捕捉类，类名称必须与异常名称一致
 
 2. 自定义异常捕捉类，格式和功能与**默认异常捕捉类**一致
 
@@ -182,22 +184,69 @@ A simple php API framework
    }
    ```
 
+## 配置文件
+1. 配置文件位于Config目录
+2. 配置文件返回值格式**必须**为数组
+3. 文件名称将作为配置信息的下标使用
+4. 使用**config()**方法获取配置项的值（注意：在配置文件中使用config()方法可能无法正常获取返回值）
+5. 示例：database.php，文件内容如下
 
+   ```php
+   return [
+       'default' => 'mysql',
+       'connections' => [
+           'mysql' => [
+               'host' => 'localhost',
+               'port' => 3306,
+               'database' => 'horseloft',
+               'username' => 'root',
+               'password' => '123456',
+               'driver' => 'mysql'
+           ],
+       ]
+   ];
+   ```
 
+   1. 获取全部返回值
 
+      ```php
+      config('database'); // 返回值：数组格式的全部内容
+      ```
 
+   2. 获取配置文件中指定信息
 
+      ```php
+      config('databases.default'); // 返回值：'mysql'
+      
+      config('databases.connections.mysql'); // 返回值如下：
+      array(
+        'host' => 'localhost',
+        'port' => 3306,
+        'database' => 'horseloft',
+        'username' => 'root',
+        'password' => '123456',
+        'driver' => 'mysql'
+      );
+      
+      config('databases.connections.mysql.host'); // 返回值：'localhost'
+      ```
 
-**[v1.0.0]**
-1. 新增异常处理机制
-2. 新增基础functions
-3. 新增对于plodder的支持
-4. 新增请求日志记录
-5. 新增自定义异常处理
-6. 新增全局异常处理
-7. 新增header输出类型为json
-8. 新增CORS处理
-9. 新增request记录可配置
-10. 配置响应头可修改
-11. composer.json更新
-12. 编写框架使用文档
+## 辅助函数
+**辅助函数参考文件：Core/functions.php**
+1. env()
+2. config()
+3. root_path()
+4. log_path()
+5. config_path()
+6. route()
+7. method()
+8. action()
+9. interceptor()
+10. cookie()
+11. session()
+12. headers()
+
+## 数据库
+1. 使用**horseloft\plodder**作为框架的数据库工具
+2. 参考文档：
+

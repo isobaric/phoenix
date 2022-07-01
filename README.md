@@ -242,8 +242,8 @@ A simple php API framework
 7. method()
 8. action()
 9. interceptor()
-10. cookie()
-11. session()
+10. cookies()
+11. sessions()
 12. headers()
 
 ## 数据库

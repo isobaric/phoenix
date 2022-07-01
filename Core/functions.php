@@ -144,7 +144,7 @@ if (!function_exists('interceptor')) {
     }
 }
 
-if (!function_exists('cookie')) {
+if (!function_exists('cookies')) {
     /**
      * ------------------------------------------------------
      * 当前请求的cookie
@@ -152,13 +152,13 @@ if (!function_exists('cookie')) {
      *
      * @return array
      */
-    function cookie(): array
+    function cookies(): array
     {
         return Container::getRequestCookie();
     }
 }
 
-if (!function_exists('session')) {
+if (!function_exists('sessions')) {
     /**
      * ------------------------------------------------------
      * 当前请求的session
@@ -166,7 +166,7 @@ if (!function_exists('session')) {
      *
      * @return array
      */
-    function session(): array
+    function sessions(): array
     {
         return Container::getRequestSession();
     }

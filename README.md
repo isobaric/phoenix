@@ -9,7 +9,7 @@ A simple php API framework
 4. v1版本适用于: PHP >= 7.1
 5. v2版本适用于：PHP >= 8.1
 
-# 基础功能说明
+# 框架功能说明
 
 ## 目录结构
 > Application   项目代码主目录
@@ -186,10 +186,11 @@ A simple php API framework
 
 ## 配置文件
 1. 配置文件位于Config目录
-2. 配置文件返回值格式**必须**为数组
-3. 文件名称将作为配置信息的下标使用
-4. 使用config()方法获取配置项的值（注意：在配置文件中使用config()方法可能无法正常获取返回值）
-5. 示例：database.php，文件内容如下
+2. 配置文件**database.php**和**cors.php**是框架的基础配置文件
+3. 配置文件返回值格式**必须**为数组
+4. 文件名称将作为配置信息的下标使用
+5. 使用config()方法获取配置项的值（注意：在配置文件中使用config()方法可能无法正常获取返回值）
+6. 示例：database.php，文件内容如下
 
    ```php
    return [
@@ -248,5 +249,5 @@ A simple php API framework
 
 ## 数据库
 1. 使用**horseloft\plodder**作为框架的数据库工具
-2. 参考文档：
+2. 参考文档：https://github.com/horseloft/plodder/wiki/document
 

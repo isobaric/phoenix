@@ -13,7 +13,7 @@
     "require": {
         "php": ">=7.1",
         "ext-json":"^1.0",
-        "horseloft/phalanx": "~0.0.1",
+        "horseloft/phalanx": "^1.0",
         "horseloft/plodder": "^1.0"
     },
     "autoload": {
@@ -23,9 +23,6 @@
         "files": [
             "Core/functions.php"
         ]
-    },
-    "require-dev": {
-        "phpunit/phpunit": "~5.0"
     },
     "prefer-stable": true,
     "repositories": [

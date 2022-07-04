@@ -105,12 +105,12 @@ A simple php API framework
 2. 配置路由拦截器
 
    ```php
-   // 拦截器名称default，对应目录Interceptor下的DefaultInterceptor.php
+   // 拦截器名称default，对应目录Interceptor下的Default.php
    Route::group(['interceptor' => ['default']], function () {
        Route::post('index', 'IndexController::index');
    });
    
-   // 拦截器名称default，对应目录Interceptor下的DefaultInterceptor.php
+   // 拦截器名称default，对应目录Interceptor下的Default.php
    Route::get('index', 'IndexController::index', null, 'default');
    ```
 

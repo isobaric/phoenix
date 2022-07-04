@@ -19,10 +19,7 @@
     "autoload": {
         "psr-4": {
             "Application\\": "Application/"
-        },
-        "files": [
-            "Core/functions.php"
-        ]
+        }
     },
     "prefer-stable": true,
     "repositories": [

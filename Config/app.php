@@ -40,21 +40,21 @@ return [
      * 是否记录请求日志: bool
      * ------------------------------------------------------------------
      */
-    'log_request' => true,
+    'request_log' => true,
 
     /**
      * ------------------------------------------------------------------
      * 是否记录错误信息: bool
      * ------------------------------------------------------------------
      */
-    'log_error' => true,
+    'error_log' => true,
 
     /**
      * ------------------------------------------------------------------
      * 是否记录错误trace: bool
      * ------------------------------------------------------------------
      */
-    'log_error_trace' => true,
+    'error_trace_log' => env('error_trace_log'),
 
     /**
      * ------------------------------------------------------------------
@@ -63,9 +63,14 @@ return [
      *
      * 允许值：parameter|header|session|cookie
      *
-     * 仅 log_request === true 时生效
+     * 仅 request_log === true 时生效
      */
-    'log_request_field' => ['parameter', 'session', 'cookie', 'header'],
+    'request_log_fields' => [
+        'parameter',
+        'session',
+        'cookie',
+        'header'
+    ],
 
     /**
      * ------------------------------------------------------------------
@@ -74,9 +79,9 @@ return [
      *
      * 允许值：parameter|header|session|cookie
      *
-     * 仅 log_request === true 时生效
+     * 仅 request_log === true 时生效
      */
-    'log_request_exclude' => [
+    'request_log_exclude' => [
         /**
          * 不计入日志的请求参数
          * 例：password
@@ -99,11 +104,18 @@ return [
 
         /**
          * 不计入日志的header
-         * 例：token
+         * 例：Token Host Accept Accept-Language Connection User-Agent
          */
         'header' => [
-            'Accept-Language', 'Accept-Encoding', 'Accept', 'Upgrade-Insecure-Requests', 'Cache-Control',
-            'Connection', 'Host', 'Content-Length', 'Content-Type', 'User-Agent'
+            'Accept',
+            'Accept-Language',
+            'Accept-Encoding',
+            'Upgrade-Insecure-Requests',
+            'Cache-Control',
+            'Connection',
+            'Content-Length',
+            'Content-Type',
+            'User-Agent'
         ],
     ]
 ];

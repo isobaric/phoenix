@@ -16,7 +16,7 @@ return [
         'default' => env('database'),
 
         /**
-         *  连接名称 default
+         *  连接名称 mysql
          */
         'mysql' => [
             'host' => 'host.docker.internal',

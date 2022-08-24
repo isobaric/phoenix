@@ -233,7 +233,6 @@ A simple php API framework
       ```
 
 ## 辅助函数
-**辅助函数参考文件：Core/functions.php**
 1. env()
 2. config()
 3. root_path()
@@ -250,4 +249,3 @@ A simple php API framework
 ## 数据库
 1. 使用**horseloft\plodder**作为框架的数据库工具
 2. 参考文档：https://github.com/horseloft/plodder/wiki/document
-

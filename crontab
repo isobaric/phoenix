@@ -1,0 +1,10 @@
+#!/usr/bin/env php
+<?php
+
+use Horseloft\Phalanx\Bootstrap;
+
+require_once __DIR__ . '/Core/core.php';
+
+$app = new Bootstrap(__DIR__, 'Application', true);
+
+$app->crontab();

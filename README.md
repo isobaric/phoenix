@@ -249,3 +249,76 @@ A simple php API framework
 ## 数据库
 1. 使用**horseloft\plodder**作为框架的数据库工具
 2. 参考文档：https://github.com/horseloft/plodder/wiki/document
+
+## command
+**用于执行脚本命令**
+```shell
+  php command command_name [...command_param]
+```
+
+1. 在配置文件 command.php 中配置要执行的命令
+```php
+  return [
+    'test' => [Application\Controllers\IndexController::class, 'index']
+  ];
+```
+
+2. 启动命令：
+```shell
+  # 无参数
+  php command test 
+  
+  # 一个参数
+  php command test name=Tom
+  
+  # 多个参数
+  php command test name=Tom numbers=100,200,300  
+```
+
+3. 脚本的回调函数示例：
+```php
+ namespace Application\Controllers;
+
+ use Horseloft\Phalanx\Builder\Request;
+
+ class IndexController
+ {
+    public static function index(Request $request)
+    {
+        // TODO...
+    }
+ } 
+```
+
+6. 脚本的回调函数允许接收一个**Request**类型的参数
+7. 脚本回调函数必须是一个静态方法
+
+## crontab
+**用于执行定时任务**
+```shell
+php crontab
+```
+
+1. 在配置文件**crontab.php**中添加任务
+```php
+  return [
+    'test' => [
+        'command' => '*/1 * * * *',
+        'callback' => [Application\Controllers\IndexController::class, 'index'],
+        'args' => ['user' => 'Tom']
+    ]
+  ];
+```
+2. key是任务名称，格式符合PHP数组key格式即可
+3. key的value为数组格式
+4. command格式必须是合法的Linux crontab日期格式
+5. callback是要执行的任务回调方法，必须是callable类型，并且回调方法必须是静态方法
+6. args是传递给回调方法的参数
+
+**配置中的任务以半阻塞形式同时开始执行，全部任务执行结束后，才会进入下一次执行等待周期；如果某一个任务长时间运行，将会阻塞其他任务的运行**
+
+例：设定任务A每分钟执行一次、任务B每五分钟执行一次，在12：05分两个任务同时开始执行；任务B程序运行了6分钟，那么在12：06 - 12：11分之间
+
+   任务A不会运行，且任务B在12：10分也不会运行；直到12：12分开始任务A开始运行，下一个五分钟即12：15分任务B运行。
+   
+**定时任务列表中的任务运行时长不应超过一分钟，长时间运行的程序应使用command命令配合守护进程运行**

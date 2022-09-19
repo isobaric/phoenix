@@ -3,6 +3,7 @@
 namespace Application\Runtime;
 
 use Horseloft\Phalanx\Builder\Request;
+use Horseloft\Phalanx\ShutdownException;
 use Throwable;
 
 class Exception
@@ -16,7 +17,7 @@ class Exception
      *
      * handle()方法的第二个参数：\Throwable $e
      *
-     * handle()方法的返回值将作为本次接口的响应值输出
+     * handle()方法的返回值将作为本次接口的响应值输出，返回值为Null则不输出任何内容
      *
      * @param Request $request
      * @param Throwable $e
@@ -25,6 +26,9 @@ class Exception
      */
     public static function handle(Request $request, Throwable $e)
     {
-        return "Default Exception: " . $e->getMessage() . " " . json_encode($request->all());
+        if ($e instanceof ShutdownException && env('debug')) {
+            return $e->getMessage();
+        }
+        return "Default Exception: " . $e->getMessage() . json_encode($request->all());
     }
 }

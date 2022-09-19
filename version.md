@@ -1,5 +1,9 @@
 # 版本日志
 
+## v1.1.1
+1. 移除error_log和error_trace_log配置项
+2. 不再主动记录错误日志和日志追踪信息
+
 ## v1.1.0
 1. 新增command命令，用于执行命令行脚本。命令：php command commandName
 2. 新增定时任务功能，用于执行定时任务。命令：php crontab

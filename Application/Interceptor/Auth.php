@@ -3,8 +3,9 @@
 namespace Application\Interceptor;
 
 use Horseloft\Phalanx\Builder\Request;
+use Horseloft\Phalanx\Multiple\Interceptor;
 
-class Auth
+class Auth extends Interceptor
 {
     /**
      * 拦截器必须有方法handle 并且handle必须指定参数$request 并且格式为 Horseloft\Core\Drawer\Request
@@ -16,7 +17,7 @@ class Auth
      * @param Request $request
      * @return mixed
      */
-    public static function handle(Request $request)
+    public function handle(Request $request)
     {
         return true;
     }

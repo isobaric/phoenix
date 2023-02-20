@@ -1,14 +1,15 @@
 <?php
 
 use Horseloft\Phalanx\Builder\Route;
+use Application\Controllers\IndexController;
 
-Route::group(['prefix' => '/index', 'namespace' => '', 'interceptor' => ['Auth']], function () {
+Route::group(['prefix' => '/index', 'interceptor' => ['auth']], function () {
 
-    Route::post('/', 'IndexController::index');
+    Route::post('/', [IndexController::class, 'index']);
 
-    Route::get('/', 'IndexController::index');
+    Route::get('/', [IndexController::class, 'index']);
 });
 
-Route::get('/', 'IndexController::index', null, 'Auth');
+Route::get('/', [IndexController::class, 'index'], 'auth');
 
-Route::post('/', 'IndexController::index', null, 'Auth');
+Route::post('/', [IndexController::class, 'index'], 'auth');

@@ -103,5 +103,5 @@ return [
             'Content-Type',
             'User-Agent'
         ],
-    ]
+    ],
 ];

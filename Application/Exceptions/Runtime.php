@@ -1,12 +1,13 @@
 <?php
 
-namespace Application\Runtime;
+namespace Application\Exceptions;
 
 use Horseloft\Phalanx\Builder\Request;
+use Horseloft\Phalanx\Multiple\Exceptions;
 use Horseloft\Phalanx\ShutdownException;
 use Throwable;
 
-class Exception
+class Runtime extends Exceptions
 {
     /**
      * 默认异常处理类
@@ -24,7 +25,7 @@ class Exception
      *
      * @return mixed
      */
-    public static function handle(Request $request, Throwable $e)
+    public function handle(Request $request, Throwable $e)
     {
         if ($e instanceof ShutdownException && env('debug')) {
             return $e->getMessage();
